@@ -42,12 +42,14 @@ const GetOrders: FC<IProps> = ({ getOrders, setGetOrders }) => {
       });
   };
 
-  useEffect(() => {
+  const getOrdersFn = useCallback(() => {
     if (getOrders) {
       handleGetOrders();
       setGetOrders(false);
     }
   }, [getOrders]);
+
+  getOrdersFn();
 
   const deleteOrder = (orderId: number) => {
     fetch(
@@ -68,7 +70,7 @@ const GetOrders: FC<IProps> = ({ getOrders, setGetOrders }) => {
     <div className='w-full'>
       {allOrders?.map((order, idx) => (
         <div key={idx} className='w-full flex items-center gap-x-2'>
-          <span className="text-black" >
+          <span className='text-black'>
             {order?.customer?.firstName} &nbsp;
             {order?.customer?.lastName}
           </span>
