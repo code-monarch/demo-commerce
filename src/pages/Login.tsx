@@ -8,7 +8,7 @@ const styles = {
   subHeader: `text-black text-lg font-semibold text-center pb-10`,
   formContainer: `bg-white shadow-xl p-10 flex flex-col gap-4 text-sm`,
   label: `text-gray-600 font-bold inline-block pb-2`,
-  input: `border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2`,
+  input: `bg-white border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2`,
 };
 
 const registerUrl = `${BASE_URL}/Authentication/Login`;
@@ -31,6 +31,7 @@ const Login = () => {
   };
 
   const loginUser = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     fetch(registerUrl, fetchOptions)
       .then((response) => {
         // Parse the response as JSON

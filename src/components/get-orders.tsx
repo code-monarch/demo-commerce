@@ -65,7 +65,7 @@ const GetOrders: FC<IProps> = ({ getOrders, setGetOrders }) => {
     <div className='w-full'>
       {allOrders?.map((order, idx) => (
         <div key={idx} className='w-full flex items-center gap-x-2'>
-          <span>
+          <span className="text-black" >
             {order?.customer?.firstName} &nbsp;
             {order?.customer?.lastName}
           </span>

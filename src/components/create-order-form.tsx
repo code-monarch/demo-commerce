@@ -4,7 +4,7 @@ import { BASE_URL } from "../constants";
 const styles = {
   formContainer: `bg-white w-[300px] flex flex-col gap-4 text-sm p-10 shadow-xl`,
   label: `text-gray-600 font-bold inline-block pb-2`,
-  input: `border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2`,
+  input: `bg-white border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2`,
 };
 
 const createOrderUrl = `${BASE_URL}/Order/CreateOrder`;
@@ -59,7 +59,7 @@ const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
           Bar code
         </label>
         <input
-          className='border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2'
+          className={styles.input}
           type='text'
           name='barCode'
           placeholder='jhjhjdjhdwhd'
@@ -69,13 +69,13 @@ const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
       </div>
       <div>
         <label className={styles.label} htmlFor='name'>
-          Name
+          Item Name
         </label>
         <input
-          className='border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2'
+          className={styles.input}
           type='text'
           name='name'
-          placeholder='johndoe@gmail.com'
+          placeholder='Item Name'
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -85,7 +85,7 @@ const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
           Quantity
         </label>
         <input
-          className='border border-gray-400 focus:outline-slate-400 rounded-md w-full shadow-sm px-5 py-2'
+          className={styles.input}
           type='number'
           name='quantity'
           placeholder='12'

@@ -4,19 +4,17 @@ import GetOrders from "../components/get-orders";
 
 const Home = () => {
   const [createOrderForm, setCreateOrderForm] = useState(false);
-  const [getOrders, setGetOrders] = useState(false);
+  const [getOrders, setGetOrders] = useState(true);
+
   return (
     <div className='bg-[#F9FAFB] h-screen w-screen flex items-center justify-center'>
       <div className=' w-full h-[300px] flex flex-col items-center justify-center space-y-[32px] mx-auto'>
         <div className='w-full flex justify-center items-center gap-x-4'>
-          <button className='bg-black text-white py-2 px-3 rounded-sm'>
-            Edit Order
-          </button>
           <button
             className='bg-green-500 text-white py-2 px-3 rounded-sm'
             onClick={() => setCreateOrderForm(!createOrderForm)}
           >
-            Create Order
+            Create an Order
           </button>
         </div>
 
