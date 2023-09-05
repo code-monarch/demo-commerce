@@ -43,11 +43,13 @@ const Register = () => {
         // Parse the response as JSON
         return response.json() as Promise<IRegisterResponse>;
       })
-      .then(() => {
-        window.alert("User Logged In succesfully");
+      .then((response) => {
+        if(response){
+        window.alert("Registration succesfully");
         navigate(`${LOGIN_PAGE}`);
+        }
       })
-      .catch((error) => {
+      .catch(() => {
         window.alert("Error while registering");
       });
   };

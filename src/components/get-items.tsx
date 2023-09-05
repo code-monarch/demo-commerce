@@ -53,7 +53,7 @@ const GetItems = () => {
             {item?.itemBarcode} &nbsp; {item?.name}
           </span>
           <button
-            className='bg-red-500 textx-white px-2 py-1 rounded-sm'
+            className='bg-red-500 texxt-white px-2 py-1 rounded-sm'
             onClick={() => {
               setBarcode(item?.itemBarcode);
               setName(item?.name);

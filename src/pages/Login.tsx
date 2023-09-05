@@ -89,7 +89,7 @@ const Login = () => {
             Login
           </button>
           <div className="w-full flex flex-col items-center space-y-[8px]">
-            <span className="text-center text-black">Don't have an account</span>
+            <span className="text-center text-black">Don't have an account?</span>
             <button
               className='bg-gray-600 w-full py-2 px-3 text-white rounded-sm'
               onClick={() => navigate(`${REGISTER_PAGE}`)}
