@@ -33,6 +33,7 @@ const GetItems = () => {
         setAllItems(items);
       })
       .catch((error) => {
+         window.alert("Couldn't fetch Items");
         console.error("Fetch error:", error?.detail);
       });
   };

@@ -37,6 +37,7 @@ const GetOrders: FC<IProps> = ({ getOrders, setGetOrders }) => {
         setAllOrders(orders);
       })
       .catch((error) => {
+        window.alert("Couldn't fetch Orders");
         console.error("Error getting orders",);
       });
   };
