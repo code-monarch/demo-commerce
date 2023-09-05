@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IRegisterResponse } from "../types";
-import { BASE_URL } from "../constants";
+import { BASE_URL, LOGIN_PAGE } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   header: `text-black text-xl font-bold text-center pb-6`,
@@ -19,6 +20,8 @@ const Register = () => {
   const [lastname, setLastname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const requestBody = {
     firstname: `${firstname}`,
@@ -42,6 +45,7 @@ const Register = () => {
       })
       .then(() => {
         window.alert("User Logged In succesfully");
+        navigate(`${LOGIN_PAGE}`);
       })
       .catch((error) => {
         window.alert("Error while registering");

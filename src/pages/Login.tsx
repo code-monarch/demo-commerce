@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ILoginResponse } from "../types";
 import { setTokenCookie } from "../helpers/session-manager";
-import { BASE_URL } from "../constants";
+import { BASE_URL, HOME_PAGE } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   header: `text-black text-xl font-bold text-center pb-6`,
@@ -18,6 +19,8 @@ headers.append("Content-Type", "application/json; charset=UTF-8");
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const navigate = useNavigate()
 
   const requestBody = {
     emailAddress: `${email}`,
@@ -40,6 +43,7 @@ const Login = () => {
       .then(({ accessToken }) => {
         setTokenCookie(accessToken);
         window.alert("User Logged In succesfully");
+        navigate(`${HOME_PAGE}`);
       })
       .catch((error) => {
         console.error("Fetch error:", error);

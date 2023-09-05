@@ -47,3 +47,7 @@ export interface IUpdateOrderPayload {
   quantity: number;
   orderId: number;
 }
+export interface IGetItemsResponse {
+    itemBarcode: string;
+    name: string;
+}

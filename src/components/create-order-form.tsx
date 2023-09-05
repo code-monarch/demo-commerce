@@ -12,12 +12,11 @@ const headers = new Headers();
 headers.append("Content-Type", "application/json; charset=UTF-8");
 
 interface IProps {
-  setGetOrders: React.Dispatch<React.SetStateAction<boolean>>;
+  name: string;
+  barCode: string;
 }
 
-const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
-  const [barCode, setBarcode] = useState<string>("");
-  const [name, setName] = useState<string>("");
+const CreateOrderForm: FC<IProps> = ({name, barCode }) => {
   const [quantity, setQuantity] = useState<string>();
 
   const requestBody = {
@@ -45,7 +44,6 @@ const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
       })
       .then(() => {
         window.alert("Order Created");
-        setGetOrders(true)
       })
       .catch((error) => {
         console.error("Fetch error:", error?.detail);
@@ -54,32 +52,6 @@ const CreateOrderForm:FC<IProps> = ({ setGetOrders }) => {
 
   return (
     <form className={styles.formContainer} onSubmit={(e) => createOrder(e)}>
-      <div>
-        <label className={styles.label} htmlFor='barCode'>
-          Bar code
-        </label>
-        <input
-          className={styles.input}
-          type='text'
-          name='barCode'
-          placeholder='jhjhjdjhdwhd'
-          value={barCode}
-          onChange={(e) => setBarcode(e.target.value)}
-        />
-      </div>
-      <div>
-        <label className={styles.label} htmlFor='name'>
-          Item Name
-        </label>
-        <input
-          className={styles.input}
-          type='text'
-          name='name'
-          placeholder='Item Name'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
       <div>
         <label className={styles.label} htmlFor='quantity'>
           Quantity
