@@ -41,10 +41,14 @@ const Login = () => {
         return response.json() as Promise<ILoginResponse>;
       })
       .then(({ accessToken }) => {
-        setTokenCookie(accessToken);
-        window.alert("User Logged In succesfully");
+        if(accessToken)
+        {
+          setTokenCookie(accessToken);
+          window.alert("User Logged In succesfully");
+          navigate(`${DASHBOARD_PAGE}`);
+        }
         
-        navigate(`${DASHBOARD_PAGE}`);
+        
       })
       .catch((error) => {
         console.error("Fetch error:", error);

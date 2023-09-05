@@ -40,14 +40,8 @@ const Register = () => {
     e.preventDefault();
     fetch(registerUrl, fetchOptions)
       .then((response) => {
-        // Parse the response as JSON
-        return response.json() as Promise<IRegisterResponse>;
-      })
-      .then((response) => {
-        if(response){
+          navigate(`${LOGIN_PAGE}`);
         window.alert("Registration succesfully");
-        navigate(`${LOGIN_PAGE}`);
-        }
       })
       .catch(() => {
         window.alert("Error while registering");
