@@ -43,7 +43,8 @@ const Login = () => {
       .then(({ accessToken }) => {
         setTokenCookie(accessToken);
         window.alert("User Logged In succesfully");
-        c
+        
+        navigate(`${DASHBOARD_PAGE}`);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
