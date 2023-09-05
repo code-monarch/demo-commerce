@@ -2,11 +2,11 @@ import React from "react";
 
 import { Route, Routes } from "react-router-dom";
 import { DASHBOARD_PAGE, HOME_PAGE, LOGIN_PAGE, REGISTER_PAGE } from "../constants";
-import Home from "../pages/Dashboard";
+import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProtectedRoute from "./protected-route";
-import Dashboard from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
 
 const MainRouter: React.FC<React.PropsWithChildren> = () => {
   return (
