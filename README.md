@@ -11,19 +11,19 @@ Clone this repository to your computer.
 `HTTPS`
 
 ```bash
- git clone https://github.com/harkkozz/react-ts-vite-pnpm.git
+ git clone -b master https://github.com/code-monarch/demo-commerce.git
 ```
 
 `SSH`
 
 ```bash
- git clone git@github.com:harkkozz/react-ts-vite-pnpm.git
+ git clone -b master git@github.com:code-monarch/demo-commerce.git
 ```
 
 Navigate to the project directory in your terminal.
 
 ```bash
- cd react-ts-vite-pnpm
+ cd demo-commerce
 ```
 
 Run `pnpm install` to install the project dependencies.
