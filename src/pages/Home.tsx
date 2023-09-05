@@ -14,7 +14,7 @@ const Home = () => {
             <GetOrders getOrders={getOrders} setGetOrders={setGetOrders} />
           </div>
           <div className='space-y-[16px]'>
-            <h2>All Orders</h2>
+            <h2>All Items</h2>
             <GetItems />
           </div>
         </div>
