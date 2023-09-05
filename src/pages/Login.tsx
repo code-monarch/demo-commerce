@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ILoginResponse } from "../types";
 import { setTokenCookie } from "../helpers/session-manager";
-import { BASE_URL, HOME_PAGE } from "../constants";
+import { BASE_URL, HOME_PAGE, REGISTER_PAGE } from "../constants";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
@@ -89,6 +89,13 @@ const Login = () => {
             Login
           </button>
         </form>
+
+        <button
+          className='bg-blue-600 w-full py-2 px-3 text-white rounded-sm'
+          onClick={()=> navigate(`${REGISTER_PAGE}`)}
+        >
+          Register
+        </button>
       </div>
     </div>
   );
