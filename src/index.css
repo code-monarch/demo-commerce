@@ -18,8 +18,10 @@
 
 body {
   background: #808080;
+  color: white;
   margin: 0;
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
