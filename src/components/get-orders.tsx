@@ -1,11 +1,14 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
 import { IGetOrdersResponse } from "../types";
+import { getTokenCookie } from "../helpers/session-manager";
 
 const getOrderUrl = `${BASE_URL}/Order/GetOrders`;
+const authToken = getTokenCookie();
 
 const headers = new Headers();
 headers.append("Content-Type", "application/json; charset=UTF-8");
+headers.append("Authorization", `Bearer ${authToken ?? ""}`);
 
 interface IProps {
   getOrders: boolean;

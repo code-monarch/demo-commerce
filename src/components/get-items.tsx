@@ -2,11 +2,17 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
 import { IGetItemsResponse, IGetOrdersResponse } from "../types";
 import CreateOrderForm from "./create-order-form";
+import { getTokenCookie } from "../helpers/session-manager";
 
 const getItemsUrl = `${BASE_URL}/Items/GetItems`;
+const authToken = getTokenCookie()
 
 const headers = new Headers();
-headers.append("Content-Type", "application/json; charset=UTF-8");
+headers.append(
+  "Content-Type",
+  "application/json; charset=UTF-8",
+);
+headers.append("Authorization", `Bearer ${authToken ?? ""}`);
 
 const GetItems = () => {
   const [allItems, setAllItems] = useState<IGetItemsResponse[]>([]);
@@ -19,17 +25,23 @@ const GetItems = () => {
     headers: headers,
   };
 
-  fetch(getItemsUrl, fetchOptions)
-    .then((response) => {
-      // Parse the response as JSON
-      return response.json() as Promise<IGetItemsResponse[]>;
-    })
-    .then((items) => {
-      setAllItems(items);
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error?.detail);
-    });
+  const getItems = () => {
+    fetch(getItemsUrl, fetchOptions)
+      .then((response) => {
+        // Parse the response as JSON
+        return response.json() as Promise<IGetItemsResponse[]>;
+      })
+      .then((items) => {
+        setAllItems(items);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error?.detail);
+      });
+  };
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   return (
     <div className='w-full'>

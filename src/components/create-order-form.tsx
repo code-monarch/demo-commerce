@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { BASE_URL } from "../constants";
+import { getTokenCookie } from "../helpers/session-manager";
 
 const styles = {
   formContainer: `bg-white w-[300px] flex flex-col gap-4 text-sm p-10 shadow-xl`,
@@ -8,8 +9,11 @@ const styles = {
 };
 
 const createOrderUrl = `${BASE_URL}/Order/CreateOrder`;
+const authToken = getTokenCookie();
+
 const headers = new Headers();
 headers.append("Content-Type", "application/json; charset=UTF-8");
+headers.append("Authorization", `Bearer ${authToken ?? ""}`);
 
 interface IProps {
   name: string;
