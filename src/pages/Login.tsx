@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ILoginResponse } from "../types";
 import { setTokenCookie } from "../helpers/session-manager";
-import { BASE_URL, HOME_PAGE, REGISTER_PAGE } from "../constants";
+import { BASE_URL, DASHBOARD_PAGE, HOME_PAGE, REGISTER_PAGE } from "../constants";
 import { useNavigate } from "react-router-dom";
 
 const styles = {
@@ -43,7 +43,7 @@ const Login = () => {
       .then(({ accessToken }) => {
         setTokenCookie(accessToken);
         window.alert("User Logged In succesfully");
-        navigate(`${HOME_PAGE}`);
+        c
       })
       .catch((error) => {
         console.error("Fetch error:", error);

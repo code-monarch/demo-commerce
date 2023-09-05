@@ -16,7 +16,7 @@ const GetItems = () => {
   const [createOrder, setCreateOrder] = useState<boolean>(false);
   const [barCode, setBarcode] = useState<string>("");
   const [name, setName] = useState<string>("");
-  const [getAllItems, setGetAllItems] = useState<boolean>(false);
+  const [getAllItems, setGetAllItems] = useState<boolean>(true);
 
   const fetchOptions = {
     method: "GET",
