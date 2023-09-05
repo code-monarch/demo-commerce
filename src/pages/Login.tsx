@@ -88,14 +88,13 @@ const Login = () => {
           >
             Login
           </button>
+          <button
+            className='bg-gray-600 w-full py-2 px-3 text-white rounded-sm'
+            onClick={() => navigate(`${REGISTER_PAGE}`)}
+          >
+            Register
+          </button>
         </form>
-
-        <button
-          className='bg-blue-600 w-full py-2 px-3 text-white rounded-sm'
-          onClick={()=> navigate(`${REGISTER_PAGE}`)}
-        >
-          Register
-        </button>
       </div>
     </div>
   );
