@@ -5,13 +5,10 @@ import CreateOrderForm from "./create-order-form";
 import { getTokenCookie } from "../helpers/session-manager";
 
 const getItemsUrl = `${BASE_URL}/Items/GetItems`;
-const authToken = getTokenCookie()
+const authToken = getTokenCookie();
 
 const headers = new Headers();
-headers.append(
-  "Content-Type",
-  "application/json; charset=UTF-8",
-);
+headers.append("Content-Type", "application/json; charset=UTF-8");
 headers.append("Authorization", `Bearer ${authToken ?? ""}`);
 
 const GetItems = () => {
@@ -19,6 +16,7 @@ const GetItems = () => {
   const [createOrder, setCreateOrder] = useState<boolean>(false);
   const [barCode, setBarcode] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [getAllItems, setGetAllItems] = useState<boolean>(false);
 
   const fetchOptions = {
     method: "GET",
@@ -40,8 +38,12 @@ const GetItems = () => {
   };
 
   useEffect(() => {
-    getItems();
-  }, []);
+    if (getAllItems) {
+      getItems();
+    } else {
+      setGetAllItems(false);
+    }
+  }, [getAllItems]);
 
   return (
     <div className='w-full'>
